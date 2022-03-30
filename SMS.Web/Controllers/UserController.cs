@@ -54,7 +54,8 @@ namespace SMS.Web.Controllers
         public IActionResult Register([Bind("Name,Email,Password,Role")]UserRegisterViewModel m)
         {
             // check if email address is already in use - replaced by use of remote validator in UserRegisterViewModel
-            if (_svc.GetUserByEmail(m.Email) != null) {
+            if (_svc.GetUserByEmail(m.Email) != null)
+            {
                 ModelState.AddModelError(nameof(m.Email),"This email address is already in use. Choose another");
             }
 

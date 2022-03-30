@@ -6,6 +6,9 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
+///**Add authetification service using cookie scheme**
+builder.Services.AddAuthentication();
+
 //configure DI system
 builder.Services.AddScoped<IStudentService,StudentServiceDb>();
 
