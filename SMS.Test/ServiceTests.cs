@@ -1,4 +1,4 @@
-
+using System;
 using Xunit;
 using SMS.Data.Models;
 using SMS.Data.Services;
@@ -264,11 +264,12 @@ namespace SMS.Test
             var t = svc.CreateTicket(s.Id, "Dummy Ticket");
 
             // act
-            var r = svc.CloseTicket(t.Id);
+            var r = svc.CloseTicket(t.Id,"Resolved");
 
             // assert
             Assert.NotNull(r);              // verify closed ticket returned          
             Assert.False(r.Active);
+            Assert.Equals("Resolved",r.Resolution);
         }
 
         [Fact] 
@@ -279,8 +280,8 @@ namespace SMS.Test
             var t = svc.CreateTicket(s.Id, "Dummy Ticket");
 
             // act
-            var closed = svc.CloseTicket(t.Id);     // close active ticket    
-            closed = svc.CloseTicket(t.Id);         // close non active ticket
+            var closed = svc.CloseTicket(t.Id,"Resolved");     // close active ticket    
+            closed = svc.CloseTicket(t.Id,"Resolved");         // close non active ticket
 
             // assert
             Assert.Null(closed);                    // no ticket returned as already closed

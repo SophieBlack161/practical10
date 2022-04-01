@@ -146,16 +146,19 @@ namespace SMS.Data.Services
                      .FirstOrDefault(t => t.Id == id);
         }
 
-        public Ticket CloseTicket(int id) // TBC - add resolution paremeter)
+        public Ticket CloseTicket(int id, string resolution) // TBC - add resolution paremeter)
         {
             var ticket = GetTicket(id);
             // if ticket does not exist or is already closed return null
             if (ticket == null || !ticket.Active) return null;
             
             // ticket exists and is active so close
-            ticket.Active = false;
+            ticket.Active = false;    //could remove this field and turn active to read-only property in Tickets(model)
+
             // TBC - add Resolution and ResolvedOn (DateTime.Now)
-           
+            ticket.Resolution = resolution;
+            ticket.ResolvedOn = DateTime.Now;
+
             db.SaveChanges(); // write to database
             return ticket;
         }

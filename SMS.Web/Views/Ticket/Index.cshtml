@@ -37,6 +37,9 @@
 
                <!-- TBC - Add anchor tag to navigate to Ticket Details action -->
                <!-- this replaces the close form that was here originally -->
+               <a asp-action = "Details" asp-controller = "Ticket" asp-route-id="@t.Id">
+                  <i class="bi bi-ticket-detailed"></i>Details
+               </a>
                                                    
             </td>
          </tr>
