@@ -269,7 +269,7 @@ namespace SMS.Test
             // assert
             Assert.NotNull(r);              // verify closed ticket returned          
             Assert.False(r.Active);
-            Assert.Equals("Resolved",r.Resolution);
+            Assert.Equal("Resolved",r.Resolution);
         }
 
         [Fact] 

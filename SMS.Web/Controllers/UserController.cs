@@ -92,7 +92,7 @@ namespace SMS.Web.Controllers
             return RedirectToAction("Login", "User"); 
         }        
 
-        [AcceptVerbs("GET", "POST")]
+        [AcceptVerbs("GET", "POST")]   //method works on both scenarios
         public IActionResult VerifyEmailAddress(string email)
         {
             if (_svc.GetUserByEmail(email) != null)

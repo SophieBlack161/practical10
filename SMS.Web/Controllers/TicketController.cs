@@ -52,7 +52,7 @@ namespace SMS.Web.Controllers
         // POST /ticket/close/{id}
         [HttpPost]
         [Authorize(Roles="admin,manager")]
-        public IActionResult Close([Bind("Id,Resolution")]) Ticket t)
+        public IActionResult Close([Bind("Id,Resolution")]Ticket t)
         {
             // close ticket via service
             var ticket = svc.CloseTicket(t.Id,t.Resolution); //added resolution from the model */ ;

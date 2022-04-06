@@ -153,7 +153,7 @@ namespace SMS.Data.Services
             if (ticket == null || !ticket.Active) return null;
             
             // ticket exists and is active so close
-            ticket.Active = false;    //could remove this field and turn active to read-only property in Tickets(model)
+            ticket.Active = false;    //could remove this field and turn active to read-only property in Tickets model in SMS.Data
 
             // TBC - add Resolution and ResolvedOn (DateTime.Now)
             ticket.Resolution = resolution;
